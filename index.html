@@ -404,8 +404,9 @@ img{max-width:100%;display:block;}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
 
 /* ============ PAGES ============ */
-.page{display:block;}
+.page{display:none;}
 .page.active{display:block;}
+
 /* ============ MISC ============ */
 .page-hero{
   padding:56px 0 40px;background:var(--royal-tint);
@@ -454,4 +455,700 @@ img{max-width:100%;display:block;}
     <a href="#about" onclick="navigate('about')">About</a>
     <a href="#services" onclick="navigate('services')">Our Services</a>
     <a href="#tests" onclick="navigate('tests')">Tests</a>
-    <a href="#how
+    <a href="#how" onclick="navigate('how')">How It Works</a>
+    <a href="#faq" onclick="navigate('faq')">FAQ</a>
+    <a href="#contact" onclick="navigate('contact')">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============================================================ -->
+<!-- HOME PAGE                                                     -->
+<!-- ============================================================ -->
+<section class="page active" id="page-home" data-title="Prime Care Royal Laboratory Diagnostics | Laboratory Services">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <div class="hero-tags">
+          <span class="hero-tag">Laboratory Testing</span>
+          <span class="hero-tag">Diagnostics</span>
+          <span class="hero-tag">Screening</span>
+        </div>
+        <h1>Reliable laboratory diagnostics for better health decisions</h1>
+        <p class="lede">Access essential laboratory testing and diagnostic services with a simple, convenient way to make enquiries and connect with our laboratory team.</p>
+        <div class="hero-ctas">
+          <a href="#tests" class="btn btn-primary" onclick="navigate('tests')">Ask about a test</a>
+          <button class="btn btn-whatsapp" onclick="openWhatsApp('a laboratory test')">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4.2-.4c.1-.1.1-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
+            Chat on WhatsApp
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 400" fill="none">
+          <circle class="blob" cx="150" cy="150" r="130" fill="#f1ecfa"/>
+          <circle class="blob2" cx="260" cy="250" r="90" fill="#fbe9ed"/>
+          <g stroke="#4b2e83" stroke-width="2" opacity="0.25">
+            <line x1="30" y1="60" x2="370" y2="60"/>
+            <line x1="30" y1="140" x2="370" y2="140"/>
+            <line x1="30" y1="220" x2="370" y2="220"/>
+            <line x1="30" y1="300" x2="370" y2="300"/>
+          </g>
+          <circle cx="200" cy="200" r="46" fill="#4b2e83"/>
+          <path d="M200 178v44M178 200h44" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+          <circle cx="290" cy="140" r="20" fill="#c6284b"/>
+          <circle cx="120" cy="270" r="16" fill="#c6284b" opacity="0.8"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUICK ACTION CARDS -->
+  <div class="container quick-actions">
+    <div class="qa-grid">
+      <a class="qa-card" href="#services" onclick="navigate('services')">
+        <svg class="qa-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M12 3v6M6 9h12l-1.5 10.5a2 2 0 0 1-2 1.5H9.5a2 2 0 0 1-2-1.5L6 9z"/></svg>
+        <h4>Tests &amp; Services</h4>
+        <p>Explore available laboratory services.</p>
+      </a>
+      <button class="qa-card" onclick="openWhatsApp('a laboratory test')" style="text-align:left;">
+        <svg class="qa-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        <h4>WhatsApp Enquiry</h4>
+        <p>Ask about a test or laboratory service.</p>
+      </button>
+      <a class="qa-card" href="#contact" onclick="navigate('contact')">
+        <svg class="qa-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h4>Location</h4>
+        <p>Find the laboratory and get directions.</p>
+      </a>
+      <a class="qa-card" href="#contact" onclick="navigate('contact')">
+        <svg class="qa-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.2z"/></svg>
+        <h4>Contact</h4>
+        <p>Call or message the laboratory team.</p>
+      </a>
+    </div>
+  </div>
+
+  <!-- INTRODUCTION -->
+  <section class="section intro">
+    <div class="container intro-grid">
+      <div>
+        <span class="eyebrow">About the laboratory</span>
+        <h2>Laboratory services designed around patient needs</h2>
+        <p class="lede">Prime Care Royal Laboratory Diagnostics provides diagnostic and screening services to help individuals and their healthcare providers make informed decisions. Enquiries can be made directly with the laboratory team for details on available tests, requirements, and next steps.</p>
+        <a href="#services" class="btn btn-primary" onclick="navigate('services')">Explore our services</a>
+      </div>
+      <div class="about-panel">
+        <h4>What patients can do here</h4>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Browse available laboratory tests</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Send a WhatsApp enquiry about a test</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Learn the general laboratory process</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Find the laboratory's location and contact details</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+        <span class="eyebrow">Process</span>
+        <h2>How the laboratory process works</h2>
+        <p class="lede">A general overview of what to expect when you enquire about a laboratory test.</p>
+      </div>
+      <div class="steps" style="max-width:640px;margin:0 auto;">
+        <div class="step" data-n="1"><h4>Patient enquiry</h4><p>Patient contacts the laboratory or visits the facility.</p></div>
+        <div class="step" data-n="2"><h4>Test request</h4><p>The required laboratory test is identified.</p></div>
+        <div class="step" data-n="3"><h4>Sample collection</h4><p>A specimen is collected where applicable.</p></div>
+        <div class="step" data-n="4"><h4>Laboratory processing</h4><p>The sample is processed according to the laboratory's procedures.</p></div>
+        <div class="step" data-n="5"><h4>Result</h4><p>The patient receives information about their result according to the laboratory's actual process.</p></div>
+        <div class="step" data-n="6"><h4>Follow-up</h4><p>The patient can contact the laboratory or healthcare provider as appropriate.</p></div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="#how" class="btn btn-outline" onclick="navigate('how')">See full process</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ANTENATAL SPOTLIGHT -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="spotlight">
+        <div>
+          <span class="eyebrow" style="color:#f3c6cf;">Featured service</span>
+          <h2>Antenatal screening</h2>
+          <p>Antenatal screening services are available at the laboratory. For details on what this involves and how to prepare, please reach out to our team directly.</p>
+          <div class="spotlight-ctas">
+            <button class="btn btn-whatsapp" onclick="openWhatsApp('Antenatal Screening')">Chat on WhatsApp</button>
+            <a href="#tests" class="btn btn-outline" onclick="navigate('tests')">Enquire about antenatal screening</a>
+          </div>
+        </div>
+        <div class="spotlight-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why choose us</span>
+        <h2>A simple, patient-friendly way to reach the laboratory</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><span class="why-num">01</span><h4>Clear information</h4><p>Easy access to information about available laboratory services.</p></div>
+        <div class="why-card"><span class="why-num">02</span><h4>Convenient enquiries</h4><p>Patients can contact the laboratory through available communication channels.</p></div>
+        <div class="why-card"><span class="why-num">03</span><h4>Accessible location</h4><p>Make it easy for patients to find the facility.</p></div>
+        <div class="why-card"><span class="why-num">04</span><h4>Patient-friendly experience</h4><p>A simple digital experience for laboratory enquiries.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="section-tight">
+    <div class="container">
+      <div class="cta-banner">
+        <h2>Have a question about a laboratory test?</h2>
+        <p>Reach out to Prime Care Royal Laboratory Diagnostics and our team will be glad to help with your enquiry.</p>
+        <div class="btns">
+          <button class="btn btn-primary" onclick="openWhatsApp('a laboratory test')">Chat on WhatsApp</button>
+          <a href="#contact" class="btn btn-outline" style="border-color:rgba(255,255,255,0.6);color:#fff;" onclick="navigate('contact')">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- ABOUT PAGE                                                    -->
+<!-- ============================================================ -->
+<section class="page" id="page-about" data-title="About | Prime Care Royal Laboratory Diagnostics">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">About us</span>
+      <h1>About Prime Care Royal Laboratory Diagnostics</h1>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container about-grid">
+      <div>
+        <p class="lede">Prime Care Royal Laboratory Diagnostics provides laboratory and diagnostic services for individuals seeking laboratory testing and screening.</p>
+        <p>Our aim is to make it straightforward for patients to find out which laboratory services are available and to get in touch with our team directly for enquiries, test information, and guidance on next steps.</p>
+        <p>Want to know more about our laboratory services?</p>
+        <a href="#contact" class="btn btn-primary" onclick="navigate('contact')">Contact us</a>
+      </div>
+      <div class="about-panel">
+        <h4>What we offer</h4>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Laboratory testing and diagnostic services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Antenatal and general screening services</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg> Direct enquiry support via phone and WhatsApp</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- SERVICES PAGE                                                 -->
+<!-- ============================================================ -->
+<section class="page" id="page-services" data-title="Our Services | Prime Care Royal Laboratory Diagnostics">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Our services</span>
+      <h1>Laboratory tests and screening services</h1>
+      <p class="lede" style="margin-top:12px;">An overview of the laboratory services available. Contact the laboratory to enquire about any service below.</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- TESTS PAGE                                                    -->
+<!-- ============================================================ -->
+<section class="page" id="page-tests" data-title="Tests | Prime Care Royal Laboratory Diagnostics">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Test directory</span>
+      <h1>Search available laboratory tests</h1>
+      <p class="lede" style="margin-top:12px;">Find a test below and send a WhatsApp enquiry directly to the laboratory team.</p>
+    </div>
+  </div>
+  <section class="section" style="padding-top:44px;">
+    <div class="container">
+      <div class="test-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="testSearchInput" placeholder="Search for a test..." oninput="filterTests()" aria-label="Search for a test">
+      </div>
+      <div class="test-list" id="testList"></div>
+      <p class="test-empty" id="testEmpty">No tests matched your search. Please contact the laboratory to ask about additional tests.</p>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- HOW IT WORKS PAGE                                             -->
+<!-- ============================================================ -->
+<section class="page" id="page-how" data-title="How It Works | Prime Care Royal Laboratory Diagnostics">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Process</span>
+      <h1>How the laboratory process works</h1>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="steps" style="max-width:680px;">
+        <div class="step" data-n="1"><h4>Patient enquiry</h4><p>Patient contacts the laboratory or visits the facility.</p></div>
+        <div class="step" data-n="2"><h4>Test request</h4><p>The required laboratory test is identified.</p></div>
+        <div class="step" data-n="3"><h4>Sample collection</h4><p>A specimen is collected where applicable.</p></div>
+        <div class="step" data-n="4"><h4>Laboratory processing</h4><p>The sample is processed according to the laboratory's procedures.</p></div>
+        <div class="step" data-n="5"><h4>Result</h4><p>The patient receives information about their result according to the laboratory's actual process.</p></div>
+        <div class="step" data-n="6"><h4>Follow-up</h4><p>The patient can contact the laboratory or healthcare provider as appropriate.</p></div>
+      </div>
+      <div style="margin-top:36px;">
+        <button class="btn btn-whatsapp" onclick="openWhatsApp('the laboratory process')">Ask a question about this process</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- FAQ PAGE                                                      -->
+<!-- ============================================================ -->
+<section class="page" id="page-faq" data-title="FAQ | Prime Care Royal Laboratory Diagnostics">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Frequently asked questions</span>
+      <h1>Answers to common questions</h1>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONTACT PAGE                                                  -->
+<!-- ============================================================ -->
+<section class="page" id="page-contact" data-title="Contact | Prime Care Royal Laboratory Diagnostics">
+  <div class="page-hero">
+    <div class="container">
+      <span class="eyebrow">Contact</span>
+      <h1>Get in touch with the laboratory</h1>
+    </div>
+  </div>
+  <section class="section" style="padding-top:36px;">
+    <div class="container">
+      <div class="demo-notice">DEMO WEBSITE — INFORMATION SHOWN IS FOR PRESENTATION PURPOSES AND SHOULD BE VERIFIED WITH PRIME CARE ROYAL LABORATORY DIAGNOSTICS BEFORE PUBLICATION.</div>
+      <div class="contact-grid">
+        <div>
+          <div class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2.2z"/></svg>
+            <div>
+              <h4>Phone</h4>
+              <p>[PHONE NUMBER]</p>
+              <button class="btn btn-outline btn-sm" onclick="callNow()">Call now</button>
+            </div>
+          </div>
+          <div class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg>
+            <div>
+              <h4>WhatsApp</h4>
+              <p>[WHATSAPP NUMBER]</p>
+              <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('a laboratory test')">Chat on WhatsApp</button>
+            </div>
+          </div>
+          <div class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            <div>
+              <h4>Email</h4>
+              <p>[EMAIL ADDRESS]</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div>
+              <h4>Address</h4>
+              <p>[EXACT ADDRESS]</p>
+              <button class="btn btn-outline btn-sm" onclick="getDirections()">Get directions</button>
+            </div>
+          </div>
+          <div class="contact-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            <div>
+              <h4>Opening hours</h4>
+              <p>[OPENING HOURS]</p>
+            </div>
+          </div>
+
+          <div class="map-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <p style="margin:0;font-size:0.85rem;">Map will display once the verified location is provided.</p>
+          </div>
+        </div>
+
+        <div class="form-panel">
+          <h3 style="margin-bottom:6px;">Send a laboratory enquiry</h3>
+          <p style="font-size:0.9rem;margin-bottom:22px;">Fill in the form and the laboratory team can follow up using the contact details you provide.</p>
+          <form id="enquiryForm" novalidate>
+            <div class="form-row" id="row-name">
+              <label for="fullName">Full name</label>
+              <input type="text" id="fullName" name="fullName" required>
+              <span class="field-error">Please enter your full name.</span>
+            </div>
+            <div class="form-row" id="row-phone">
+              <label for="phoneNumber">Phone number</label>
+              <input type="tel" id="phoneNumber" name="phoneNumber" required>
+              <span class="field-error">Please enter a valid phone number.</span>
+            </div>
+            <div class="form-row" id="row-email">
+              <label for="emailAddress">Email</label>
+              <input type="email" id="emailAddress" name="emailAddress">
+              <span class="field-error">Please enter a valid email address.</span>
+            </div>
+            <div class="form-row" id="row-service">
+              <label for="testService">Test / service</label>
+              <select id="testService" name="testService" required>
+                <option value="">Select a test or service</option>
+              </select>
+              <span class="field-error">Please select a test or service.</span>
+            </div>
+            <div class="form-row" id="row-message">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us more about your enquiry"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit enquiry</button>
+            <div class="form-success" id="formSuccess">Thank you. Your enquiry has been submitted. The laboratory team can follow up using the contact details provided.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Prime Care Royal Laboratory Diagnostics</div>
+        <p class="footer-tagline">Laboratory testing and diagnostic services.</p>
+      </div>
+      <div>
+        <h5>Quick links</h5>
+        <div class="footer-links">
+          <a href="#home" onclick="navigate('home')">Home</a>
+          <a href="#about" onclick="navigate('about')">About</a>
+          <a href="#services" onclick="navigate('services')">Services</a>
+          <a href="#tests" onclick="navigate('tests')">Tests</a>
+          <a href="#how" onclick="navigate('how')">How It Works</a>
+          <a href="#faq" onclick="navigate('faq')">FAQ</a>
+          <a href="#contact" onclick="navigate('contact')">Contact</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <h5>Contact</h5>
+        <p>[PHONE NUMBER]</p>
+        <p>[WHATSAPP NUMBER]</p>
+        <p>[EMAIL ADDRESS]</p>
+        <p>[EXACT ADDRESS]</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> Prime Care Royal Laboratory Diagnostics</span>
+      <span>WEBSITE CONCEPT / DEMO</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ WHATSAPP FLOAT ============ -->
+<button class="whatsapp-float" onclick="openWhatsApp('a laboratory test')" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20zm4.4-6c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.2-.1-1-.4-2-1.2-.7-.6-1.2-1.4-1.4-1.6-.1-.2 0-.4.1-.5l.4-.4.2-.4c.1-.1.1-.3 0-.4-.1-.1-.5-1.3-.7-1.8-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.5 4 3.5.5.2 1 .4 1.3.5.5.2 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1z"/></svg>
+</button>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================
+   SETTINGS — Replace these once verified by the business.
+   Do not publish this site until these are filled in.
+   ========================================================== */
+const BUSINESS_WHATSAPP = "";   // e.g. "2348012345678" (country code, no + or spaces)
+const BUSINESS_PHONE    = "";   // e.g. "+2348012345678"
+const BUSINESS_ADDRESS_QUERY = ""; // e.g. "Prime Care Royal Laboratory Diagnostics, Lagos"
+
+/* ==========================================================
+   DATA
+   ========================================================== */
+const SERVICES = [
+  { name:"Antenatal Screening", desc:"Screening services related to antenatal care.", icon:"heart" },
+  { name:"PCV", desc:"Packed Cell Volume testing.", icon:"drop" },
+  { name:"Urinalysis", desc:"Laboratory analysis of urine samples.", icon:"flask" },
+  { name:"Hepatitis Testing", desc:"Laboratory testing for hepatitis.", icon:"flask" },
+  { name:"HIV I & II Testing", desc:"Laboratory testing for HIV I and II.", icon:"flask" },
+  { name:"Blood Group", desc:"Determination of blood group.", icon:"drop" },
+  { name:"Genotype", desc:"Genotype testing services.", icon:"dna" },
+  { name:"VDRL", desc:"VDRL laboratory testing.", icon:"flask" },
+];
+
+const TESTS = [
+  { name:"Antenatal Screening", desc:"Screening services related to antenatal care." },
+  { name:"PCV", desc:"Packed Cell Volume testing." },
+  { name:"Urinalysis", desc:"Laboratory analysis of urine samples." },
+  { name:"Hepatitis Testing", desc:"Laboratory testing for hepatitis." },
+  { name:"HIV I & II", desc:"Laboratory testing for HIV I and II." },
+  { name:"Blood Group", desc:"Determination of blood group." },
+  { name:"Genotype", desc:"Genotype testing services." },
+  { name:"VDRL", desc:"VDRL laboratory testing." },
+];
+
+const FAQS = [
+  { q:"What laboratory tests are available?", a:"A range of laboratory tests and screening services are available, including antenatal screening, PCV, urinalysis, hepatitis testing, HIV I & II testing, blood group, genotype, and VDRL. Please contact the laboratory to enquire about additional tests." },
+  { q:"How do I enquire about a test?", a:"You can send a WhatsApp enquiry, call the laboratory, or use the contact form on this website." },
+  { q:"Do I need an appointment?", a:"Please contact Prime Care Royal Laboratory Diagnostics directly for the current procedure." },
+  { q:"Do tests require preparation?", a:"Preparation requirements may vary. Please contact the laboratory for current instructions." },
+  { q:"How can I contact the laboratory?", a:"You can reach the laboratory by phone, WhatsApp, email, or by visiting in person. See the Contact page for details." },
+  { q:"Where is the laboratory located?", a:"Location details are available on the Contact page. Please contact the laboratory for exact directions." },
+  { q:"How do I receive my laboratory results?", a:"Please contact Prime Care Royal Laboratory Diagnostics directly for the current procedure." },
+];
+
+const ICONS = {
+  heart:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>',
+  drop:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z"/></svg>',
+  flask:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v6l-6 10a1.5 1.5 0 0 0 1.3 2.2h13.4A1.5 1.5 0 0 0 20 19L14 9V3"/></svg>',
+  dna:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3c0 6 12 6 12 12M18 21c0-6-12-6-12-12M8 8h8M8 16h8"/></svg>',
+};
+
+/* ==========================================================
+   ROUTER
+   ========================================================== */
+function navigate(page){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target = document.getElementById('page-'+page);
+  if(target){
+    target.classList.add('active');
+    document.title = target.dataset.title || document.title;
+  }
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  window.scrollTo({top:0,behavior:'instant'});
+  history.replaceState(null,'','#'+page);
+  closeMobileMenu();
+}
+
+function toggleMobileMenu(){
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  const isOpen = menu.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+  document.getElementById('hamburgerBtn').setAttribute('aria-expanded','false');
+}
+
+/* ==========================================================
+   TOAST
+   ========================================================== */
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 3800);
+}
+
+/* ==========================================================
+   CONTACT ACTIONS
+   ========================================================== */
+function openWhatsApp(context){
+  if(!BUSINESS_WHATSAPP){
+    showToast("This demo needs the laboratory's verified WhatsApp number added before this button goes live.");
+    return;
+  }
+  const msg = encodeURIComponent(`Hello Prime Care Royal Laboratory Diagnostics, I would like to enquire about ${context}. Please provide information about availability, preparation requirements and other relevant details.`);
+  window.open(`https://wa.me/${BUSINESS_WHATSAPP}?text=${msg}`, '_blank');
+}
+function callNow(){
+  if(!BUSINESS_PHONE){
+    showToast("This demo needs the laboratory's verified phone number added before this button goes live.");
+    return;
+  }
+  window.location.href = `tel:${BUSINESS_PHONE}`;
+}
+function getDirections(){
+  if(!BUSINESS_ADDRESS_QUERY){
+    showToast("This demo needs the laboratory's verified address added before this button goes live.");
+    return;
+  }
+  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS_ADDRESS_QUERY)}`, '_blank');
+}
+
+/* ==========================================================
+   RENDER: SERVICES
+   ========================================================== */
+function renderServices(){
+  const grid = document.getElementById('servicesGrid');
+  grid.innerHTML = SERVICES.map(s=>`
+    <div class="svc-card">
+      ${ICONS[s.icon]}
+      <h4>${s.name}</h4>
+      <p>${s.desc}</p>
+      <button class="btn btn-outline btn-sm" onclick="openWhatsApp('${s.name}')">Enquire</button>
+    </div>
+  `).join('') + `
+    <div class="svc-card muted">
+      <h4>Other laboratory tests</h4>
+      <p>Contact the laboratory to enquire about additional tests and available services.</p>
+      <button class="btn btn-outline btn-sm" onclick="navigate('contact')">Contact us</button>
+    </div>
+  `;
+}
+
+/* ==========================================================
+   RENDER: TESTS
+   ========================================================== */
+function renderTests(list){
+  const wrap = document.getElementById('testList');
+  const empty = document.getElementById('testEmpty');
+  if(list.length === 0){
+    wrap.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  wrap.innerHTML = list.map(t=>`
+    <div class="test-row">
+      <div>
+        <h4>${t.name}</h4>
+        <p>${t.desc}</p>
+        <p class="prep-note">Preparation requirements may vary. Please contact the laboratory for current instructions.</p>
+      </div>
+      <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('${t.name}')">Ask on WhatsApp</button>
+    </div>
+  `).join('');
+}
+function filterTests(){
+  const q = document.getElementById('testSearchInput').value.trim().toLowerCase();
+  const filtered = TESTS.filter(t=> t.name.toLowerCase().includes(q));
+  renderTests(filtered);
+}
+
+/* ==========================================================
+   RENDER: FAQ
+   ========================================================== */
+function renderFaq(){
+  const list = document.getElementById('faqList');
+  list.innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-q" onclick="toggleFaq(${i})">
+        ${f.q}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>
+  `).join('');
+}
+function toggleFaq(i){
+  document.getElementById('faq-'+i).classList.toggle('open');
+}
+
+/* ==========================================================
+   FORM
+   ========================================================== */
+function populateServiceSelect(){
+  const select = document.getElementById('testService');
+  TESTS.forEach(t=>{
+    const opt = document.createElement('option');
+    opt.value = t.name;
+    opt.textContent = t.name;
+    select.appendChild(opt);
+  });
+  const other = document.createElement('option');
+  other.value = "Other / Not sure";
+  other.textContent = "Other / Not sure";
+  select.appendChild(other);
+}
+
+function validateForm(){
+  let valid = true;
+  const name = document.getElementById('fullName');
+  const phone = document.getElementById('phoneNumber');
+  const email = document.getElementById('emailAddress');
+  const service = document.getElementById('testService');
+
+  toggleInvalid('row-name', name.value.trim().length < 2); 
+  if(name.value.trim().length < 2) valid = false;
+
+  const phoneOk = /^[0-9+\s-]{7,}$/.test(phone.value.trim());
+  toggleInvalid('row-phone', !phoneOk);
+  if(!phoneOk) valid = false;
+
+  if(email.value.trim().length > 0){
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+    toggleInvalid('row-email', !emailOk);
+    if(!emailOk) valid = false;
+  } else {
+    toggleInvalid('row-email', false);
+  }
+
+  toggleInvalid('row-service', service.value === '');
+  if(service.value === '') valid = false;
+
+  return valid;
+}
+function toggleInvalid(rowId, isInvalid){
+  document.getElementById(rowId).classList.toggle('invalid', isInvalid);
+}
+
+document.getElementById('enquiryForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!validateForm()) return;
+  document.getElementById('formSuccess').classList.add('show');
+  this.reset();
+  setTimeout(()=>{
+    document.getElementById('formSuccess').classList.remove('show');
+  }, 6000);
+});
+
+/* ==========================================================
+   INIT
+   ========================================================== */
+document.getElementById('year').textContent = new Date().getFullYear();
+renderServices();
+renderTests(TESTS);
+renderFaq();
+populateServiceSelect();
+
+const startPage = (location.hash || '#home').replace('#','');
+navigate(document.getElementById('page-'+startPage) ? startPage : 'home');
+
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 900) closeMobileMenu();
+});
+</script>
+
+</body>
+</html>
