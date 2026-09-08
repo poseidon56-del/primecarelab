@@ -809,36 +809,68 @@ img{max-width:100%;display:block;}
         <div class="form-panel">
           <h3 style="margin-bottom:6px;">Send a laboratory enquiry</h3>
           <p style="font-size:0.9rem;margin-bottom:22px;">Fill in the form and the laboratory team can follow up using the contact details you provide.</p>
-          <form id="enquiryForm" novalidate>
-            <div class="form-row" id="row-name">
-              <label for="fullName">Full name</label>
-              <input type="text" id="fullName" name="fullName" required>
-              <span class="field-error">Please enter your full name.</span>
-            </div>
-            <div class="form-row" id="row-phone">
-              <label for="phoneNumber">Phone number</label>
-              <input type="tel" id="phoneNumber" name="phoneNumber" required>
-              <span class="field-error">Please enter a valid phone number.</span>
-            </div>
-            <div class="form-row" id="row-email">
-              <label for="emailAddress">Email</label>
-              <input type="email" id="emailAddress" name="emailAddress">
-              <span class="field-error">Please enter a valid email address.</span>
-            </div>
-            <div class="form-row" id="row-service">
-              <label for="testService">Test / service</label>
-              <select id="testService" name="testService" required>
-                <option value="">Select a test or service</option>
-              </select>
-              <span class="field-error">Please select a test or service.</span>
-            </div>
-            <div class="form-row" id="row-message">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us more about your enquiry"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Submit enquiry</button>
-            <div class="form-success" id="formSuccess">Thank you. Your enquiry has been submitted. The laboratory team can follow up using the contact details provided.</div>
-          </form>
+          <form id="enquiryForm" action="https://formspree.io/f/xzebkene" method="POST">
+
+  <div class="form-group">
+    <label for="name">Full Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      placeholder="Your full name"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="08012345678"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      placeholder="you@example.com"
+      required
+    >
+  </div>
+
+  <div class="form-group">
+    <label for="service">Service / Test Required</label>
+    <select id="service" name="service" required>
+      <option value="">Select a service</option>
+      <option value="Laboratory Test">Laboratory Test</option>
+      <option value="Medical Screening">Medical Screening</option>
+      <option value="Health Check">Health Check</option>
+      <option value="Other">Other</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="5"
+      placeholder="Tell us what you need..."
+      required
+    ></textarea>
+  </div>
+
+  <button type="submit">
+    Send Enquiry
+  </button>
+
+</form>
         </div>
       </div>
     </div>
