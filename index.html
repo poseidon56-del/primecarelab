@@ -1167,7 +1167,6 @@ function toggleInvalid(rowId, isInvalid){
 }
 
 document.getElementById('enquiryForm').addEventListener('submit', function(e){
-  e.preventDefault();
   if(!validateForm()) return;
   document.getElementById('formSuccess').classList.add('show');
   this.reset();
