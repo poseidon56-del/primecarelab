@@ -1166,12 +1166,6 @@ function toggleInvalid(rowId, isInvalid){
   document.getElementById(rowId).classList.toggle('invalid', isInvalid);
 }
 
-document.getElementById('enquiryForm').addEventListener('submit', function(e){
-  if(!validateForm()) return;
-  document.getElementById('formSuccess').classList.add('show');
-  this.reset();
-  setTimeout(()=>{
-    document.getElementById('formSuccess').classList.remove('show');
   }, 6000);
 });
 
