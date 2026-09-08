@@ -809,68 +809,37 @@ img{max-width:100%;display:block;}
         <div class="form-panel">
           <h3 style="margin-bottom:6px;">Send a laboratory enquiry</h3>
           <p style="font-size:0.9rem;margin-bottom:22px;">Fill in the form and the laboratory team can follow up using the contact details you provide.</p>
-          <form id="enquiryForm" action="https://formspree.io/f/xzebkene" method="POST">
-
-  <div class="form-group">
-    <label for="name">Full Name</label>
-    <input
-      type="text"
-      id="name"
-      name="name"
-      placeholder="Your full name"
-      required
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="phone">Phone Number</label>
-    <input
-      type="tel"
-      id="phone"
-      name="phone"
-      placeholder="08012345678"
-      required
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="email">Email Address</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="you@example.com"
-      required
-    >
-  </div>
-
-  <div class="form-group">
-    <label for="service">Service / Test Required</label>
-    <select id="service" name="service" required>
-      <option value="">Select a service</option>
-      <option value="Laboratory Test">Laboratory Test</option>
-      <option value="Medical Screening">Medical Screening</option>
-      <option value="Health Check">Health Check</option>
-      <option value="Other">Other</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="5"
-      placeholder="Tell us what you need..."
-      required
-    ></textarea>
-  </div>
-
-  <button type="submit">
-    Send Enquiry
-  </button>
-
-</form>
+          <form id="enquiryForm" action="https://formspree.io/f/xzebkene" method="POST" novalidate>
+            <div class="form-row" id="row-name">
+              <label for="fullName">Full name</label>
+              <input type="text" id="fullName" name="name" required>
+              <span class="field-error">Please enter your full name.</span>
+            </div>
+            <div class="form-row" id="row-phone">
+              <label for="phoneNumber">Phone number</label>
+              <input type="tel" id="phoneNumber" name="phone" required>
+              <span class="field-error">Please enter a valid phone number.</span>
+            </div>
+            <div class="form-row" id="row-email">
+              <label for="emailAddress">Email</label>
+              <input type="email" id="emailAddress" name="email" required>
+              <span class="field-error">Please enter a valid email address.</span>
+            </div>
+            <div class="form-row" id="row-service">
+              <label for="testService">Test / service</label>
+              <select id="testService" name="service" required>
+                <option value="">Select a test or service</option>
+              </select>
+              <span class="field-error">Please select a test or service.</span>
+            </div>
+            <div class="form-row" id="row-message">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us more about your enquiry"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">Submit enquiry</button>
+            <div class="form-success" id="formSuccess">Thank you. Your enquiry has been submitted. The laboratory team can follow up using the contact details provided.</div>
+            <div class="form-success" id="formError" style="background:var(--rose-tint);border-color:var(--rose-deep);color:var(--rose-deep);">Something went wrong sending your enquiry. Please try again, or contact us directly on WhatsApp.</div>
+          </form>
         </div>
       </div>
     </div>
@@ -920,6 +889,308 @@ img{max-width:100%;display:block;}
 </button>
 
 <div class="toast" id="toast"></div>
+
+<script>
+/* ==========================================================
+   SETTINGS — Replace these once verified by the business.
+   Do not publish this site until these are filled in.
+   ========================================================== */
+const BUSINESS_WHATSAPP = "2349157934735";
+const BUSINESS_PHONE    = "+2349157934735";
+const BUSINESS_ADDRESS_QUERY = "6.5214123,3.3358730999999997"; // verified location pin
+
+/* ==========================================================
+   DATA
+   ========================================================== */
+const SERVICES = [
+  { name:"Antenatal Screening", desc:"Screening services related to antenatal care.", icon:"heart" },
+  { name:"PCV", desc:"Packed Cell Volume testing.", icon:"drop" },
+  { name:"Urinalysis", desc:"Laboratory analysis of urine samples.", icon:"flask" },
+  { name:"Hepatitis Testing", desc:"Laboratory testing for hepatitis.", icon:"flask" },
+  { name:"HIV I & II Testing", desc:"Laboratory testing for HIV I and II.", icon:"flask" },
+  { name:"Blood Group", desc:"Determination of blood group.", icon:"drop" },
+  { name:"Genotype", desc:"Genotype testing services.", icon:"dna" },
+  { name:"VDRL", desc:"VDRL laboratory testing.", icon:"flask" },
+];
+
+const TESTS = [
+  { name:"Antenatal Screening", desc:"Screening services related to antenatal care." },
+  { name:"PCV", desc:"Packed Cell Volume testing." },
+  { name:"Urinalysis", desc:"Laboratory analysis of urine samples." },
+  { name:"Hepatitis Testing", desc:"Laboratory testing for hepatitis." },
+  { name:"HIV I & II", desc:"Laboratory testing for HIV I and II." },
+  { name:"Blood Group", desc:"Determination of blood group." },
+  { name:"Genotype", desc:"Genotype testing services." },
+  { name:"VDRL", desc:"VDRL laboratory testing." },
+];
+
+const FAQS = [
+  { q:"What laboratory tests are available?", a:"A range of laboratory tests and screening services are available, including antenatal screening, PCV, urinalysis, hepatitis testing, HIV I & II testing, blood group, genotype, and VDRL. Please contact the laboratory to enquire about additional tests." },
+  { q:"How do I enquire about a test?", a:"You can send a WhatsApp enquiry, call the laboratory, or use the contact form on this website." },
+  { q:"Do I need an appointment?", a:"Please contact Prime Care Royal Laboratory Diagnostics directly for the current procedure." },
+  { q:"Do tests require preparation?", a:"Preparation requirements may vary. Please contact the laboratory for current instructions." },
+  { q:"How can I contact the laboratory?", a:"You can reach the laboratory by phone, WhatsApp, email, or by visiting in person. See the Contact page for details." },
+  { q:"Where is the laboratory located?", a:"Location details are available on the Contact page. Please contact the laboratory for exact directions." },
+  { q:"How do I receive my laboratory results?", a:"Please contact Prime Care Royal Laboratory Diagnostics directly for the current procedure." },
+];
+
+const ICONS = {
+  heart:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/></svg>',
+  drop:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2s7 8 7 13a7 7 0 0 1-14 0c0-5 7-13 7-13z"/></svg>',
+  flask:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 3h6M10 3v6l-6 10a1.5 1.5 0 0 0 1.3 2.2h13.4A1.5 1.5 0 0 0 20 19L14 9V3"/></svg>',
+  dna:'<svg class="svc-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3c0 6 12 6 12 12M18 21c0-6-12-6-12-12M8 8h8M8 16h8"/></svg>',
+};
+
+/* ==========================================================
+   ROUTER
+   ========================================================== */
+function navigate(page, evt){
+  if(evt && typeof evt.preventDefault === 'function'){
+    evt.preventDefault();
+  }
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const target = document.getElementById('page-'+page);
+  if(target){
+    target.classList.add('active');
+    document.title = target.dataset.title || document.title;
+  }
+  document.querySelectorAll('.nav-links a').forEach(a=>{
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  window.scrollTo({top:0,behavior:'instant'});
+  try{
+    history.replaceState(null,'','#'+page);
+  }catch(err){
+    /* Some sandboxed/preview environments (e.g. srcdoc iframes) block
+       history/URL updates. Safe to ignore — in-page navigation still works. */
+  }
+  closeMobileMenu();
+}
+
+function toggleMobileMenu(){
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburgerBtn');
+  const isOpen = menu.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+function closeMobileMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburgerBtn').classList.remove('open');
+  document.getElementById('hamburgerBtn').setAttribute('aria-expanded','false');
+}
+
+/* ==========================================================
+   TOAST
+   ========================================================== */
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'), 3800);
+}
+
+/* ==========================================================
+   CONTACT ACTIONS
+   ========================================================== */
+function openWhatsApp(context){
+  if(!BUSINESS_WHATSAPP){
+    showToast("This demo needs the laboratory's verified WhatsApp number added before this button goes live.");
+    return;
+  }
+  const msg = encodeURIComponent(`Hello Prime Care Royal Laboratory Diagnostics, I would like to enquire about ${context}. Please provide information about availability, preparation requirements and other relevant details.`);
+  window.open(`https://wa.me/${BUSINESS_WHATSAPP}?text=${msg}`, '_blank');
+}
+function callNow(){
+  if(!BUSINESS_PHONE){
+    showToast("This demo needs the laboratory's verified phone number added before this button goes live.");
+    return;
+  }
+  window.location.href = `tel:${BUSINESS_PHONE}`;
+}
+function getDirections(){
+  if(!BUSINESS_ADDRESS_QUERY){
+    showToast("This demo needs the laboratory's verified address added before this button goes live.");
+    return;
+  }
+  window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(BUSINESS_ADDRESS_QUERY)}`, '_blank');
+}
+
+/* ==========================================================
+   RENDER: SERVICES
+   ========================================================== */
+function renderServices(){
+  const grid = document.getElementById('servicesGrid');
+  grid.innerHTML = SERVICES.map(s=>`
+    <div class="svc-card">
+      ${ICONS[s.icon]}
+      <h4>${s.name}</h4>
+      <p>${s.desc}</p>
+      <button class="btn btn-outline btn-sm" onclick="openWhatsApp('${s.name}')">Enquire</button>
+    </div>
+  `).join('') + `
+    <div class="svc-card muted">
+      <h4>Other laboratory tests</h4>
+      <p>Contact the laboratory to enquire about additional tests and available services.</p>
+      <button class="btn btn-outline btn-sm" onclick="navigate('contact', event)">Contact us</button>
+    </div>
+  `;
+}
+
+/* ==========================================================
+   RENDER: TESTS
+   ========================================================== */
+function renderTests(list){
+  const wrap = document.getElementById('testList');
+  const empty = document.getElementById('testEmpty');
+  if(list.length === 0){
+    wrap.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  wrap.innerHTML = list.map(t=>`
+    <div class="test-row">
+      <div>
+        <h4>${t.name}</h4>
+        <p>${t.desc}</p>
+        <p class="prep-note">Preparation requirements may vary. Please contact the laboratory for current instructions.</p>
+      </div>
+      <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('${t.name}')">Ask on WhatsApp</button>
+    </div>
+  `).join('');
+}
+function filterTests(){
+  const q = document.getElementById('testSearchInput').value.trim().toLowerCase();
+  const filtered = TESTS.filter(t=> t.name.toLowerCase().includes(q));
+  renderTests(filtered);
+}
+
+/* ==========================================================
+   RENDER: FAQ
+   ========================================================== */
+function renderFaq(){
+  const list = document.getElementById('faqList');
+  list.innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-q" onclick="toggleFaq(${i})">
+        ${f.q}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+      </button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>
+  `).join('');
+}
+function toggleFaq(i){
+  document.getElementById('faq-'+i).classList.toggle('open');
+}
+
+/* ==========================================================
+   FORM
+   ========================================================== */
+function populateServiceSelect(){
+  const select = document.getElementById('testService');
+  TESTS.forEach(t=>{
+    const opt = document.createElement('option');
+    opt.value = t.name;
+    opt.textContent = t.name;
+    select.appendChild(opt);
+  });
+  const other = document.createElement('option');
+  other.value = "Other / Not sure";
+  other.textContent = "Other / Not sure";
+  select.appendChild(other);
+}
+
+function validateForm(){
+  let valid = true;
+  const name = document.getElementById('fullName');
+  const phone = document.getElementById('phoneNumber');
+  const email = document.getElementById('emailAddress');
+  const service = document.getElementById('testService');
+
+  toggleInvalid('row-name', name.value.trim().length < 2); 
+  if(name.value.trim().length < 2) valid = false;
+
+  const phoneOk = /^[0-9+\s-]{7,}$/.test(phone.value.trim());
+  toggleInvalid('row-phone', !phoneOk);
+  if(!phoneOk) valid = false;
+
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim());
+  toggleInvalid('row-email', !emailOk);
+  if(!emailOk) valid = false;
+
+  toggleInvalid('row-service', service.value === '');
+  if(service.value === '') valid = false;
+
+  return valid;
+}
+function toggleInvalid(rowId, isInvalid){
+  document.getElementById(rowId).classList.toggle('invalid', isInvalid);
+}
+
+document.getElementById('enquiryForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  if(!validateForm()) return;
+
+  const form = this;
+  const submitBtn = document.getElementById('submitBtn');
+  const successBox = document.getElementById('formSuccess');
+  const errorBox = document.getElementById('formError');
+
+  successBox.classList.remove('show');
+  errorBox.classList.remove('show');
+  submitBtn.disabled = true;
+  const originalLabel = submitBtn.textContent;
+  submitBtn.textContent = 'Sending...';
+
+  fetch(form.action, {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if(response.ok){
+      successBox.classList.add('show');
+      form.reset();
+      setTimeout(()=>successBox.classList.remove('show'), 8000);
+    } else {
+      errorBox.classList.add('show');
+    }
+  })
+  .catch(() => {
+    errorBox.classList.add('show');
+  })
+  .finally(() => {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalLabel;
+  });
+});
+
+/* ==========================================================
+   INIT
+   ========================================================== */
+document.getElementById('year').textContent = new Date().getFullYear();
+renderServices();
+renderTests(TESTS);
+renderFaq();
+populateServiceSelect();
+
+let startPage = 'home';
+try{
+  const h = (location.hash || '').replace('#','');
+  if(h && document.getElementById('page-'+h)) startPage = h;
+}catch(err){
+  /* ignore in sandboxed preview environments */
+}
+navigate(startPage);
+
+window.addEventListener('resize', ()=>{
+  if(window.innerWidth > 900) closeMobileMenu();
+});
+</script>
 
 </body>
 </html>
